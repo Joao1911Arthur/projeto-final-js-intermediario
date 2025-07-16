@@ -13,8 +13,9 @@ export function exibirDados(pessoa) {
     document.getElementById("iidade").textContent = `Idade: ${pessoa.idade}`;
     document.getElementById("isalario").textContent = `Salário: R$${pessoa.salario}`;
     document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.opcaoVT >= true ? "Possuí" : "Não possuí"}`;
-    document.getElementById("ipassagem").textContent = `Passagem: R$${Math.round((6 / 100) * pessoa.salario)}`;
-
+    if (pessoa.opcaoVT) {
+        document.getElementById("ipassagem").textContent = `Passagem: R$${Math.round((6 / 100) * pessoa.salario)}`;
+    }
 
     document.getElementById("iresult").classList.remove("d-none");
 }
