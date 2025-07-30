@@ -1,7 +1,6 @@
 // arquivo: filtro.js
 
-import { pessoas } from "./pessoas.js";
-import { exibirDados } from "./exibirDado.js";
+import { pessoas } from "../banco de dados/pessoas.js";
 
 const pesquisa = document.getElementById("barraPesquisa");
 const divResultados = document.getElementById("resultados");

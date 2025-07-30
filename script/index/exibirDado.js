@@ -1,5 +1,7 @@
 
-import { pessoas } from "./pessoas.js";
+import { calcularPassagem } from "./calculcarPassagem.js";
+import { calcularDesconto } from "./calcularDesconto.js";
+import { calcularFGTS } from "./calcularFGTS.js";
 
 export function exibirDados(pessoa) {
     const anoAtual = new Date().getFullYear();
@@ -12,10 +14,19 @@ export function exibirDados(pessoa) {
     document.getElementById("iender").textContent = `Endereço: ${pessoa.endereco}`;
     document.getElementById("iidade").textContent = `Idade: ${pessoa.idade}`;
     document.getElementById("isalario").textContent = `Salário: R$${pessoa.salario}`;
-    document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.opcaoVT >= true ? "Possuí" : "Não possuí"}`;
+    document.getElementById("iValorEmpresaFGTS").textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
+    document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.opcaoVT >= true ? "Optante" : "Não optou"}`;
+
     if (pessoa.opcaoVT) {
-        document.getElementById("ipassagem").textContent = `Passagem: R$${Math.round((6 / 100) * pessoa.salario)}`;
+        document.getElementById("ipassagem").textContent = `Passagem: R$${calcularPassagem(pessoa)}`;
+        document.getElementById("iValorEmpresaVT").textContent = `Valor a pagar pela empresa (VT): R$${calcularDesconto(pessoa)}`;
+
+    } else {
+        document.getElementById("ipassagem").textContent = "";
+        document.getElementById("iValorEmpresaVT").textContent = "";
     }
+
+
 
     document.getElementById("iresult").classList.remove("d-none");
 }

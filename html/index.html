@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta de Funcionários</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../style/estilo.css" />
+</head>
+
+<body>
+
+    <nav class="menu">
+        <a href="cadastro.html">Cadastrar</a>
+        <a href="#">Lista</a>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="card shadow-lg rounded-4 p-4">
+                    <h2 class="text-center mb-4">Consulta de Funcionários</h2>
+
+                    <div class="mb-3">
+                        <label for="barraPesquisa" class="form-label">Busque o funcionário:</label>
+                        <input type="text" class="form-control" id="barraPesquisa" placeholder="Digite um nome" />
+                    </div>
+
+                    <!-- Onde serão exibidos os botões filtrados -->
+                    <div id="resultados" class="mb-3 d-flex flex-wrap gap-2"></div>
+
+                    <!-- Botão de pesquisa tradicional (opcional) -->
+                    <button class="btn btn-primary" id="buscar-btn" disabled>Pesquisar</button>
+
+                    <!-- Card para mostrar os dados da pessoa -->
+                    <div id="iresult" class="card shadow mt-4 d-none">
+                        <div class="card-body">
+                            <h4 id="inome" class="card-title mb-3 text-primary"></h4>
+                            <p id="inasc" class="card-text"></p>
+                            <p id="iidade" class="card-text"></p>
+                            <p id="iesco" class="card-text"></p>
+                            <p id="iender" class="card-text"></p>
+                            <p id="isalario" class="card-text"></p>
+                            <p id="iVT" class="card-text"></p>
+                            <p id="ipassagem" class="card-text"></p>
+                            <p id="iValorEmpresaVT" class="card-text"></p>
+                            <p id="iValorEmpresaFGTS" class="card-text"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="../script/index/eventosI.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+            </script>
+</body>
+
+</html>

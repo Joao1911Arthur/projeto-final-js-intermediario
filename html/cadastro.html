@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Funcionário</title>
+    <link rel="stylesheet" href="../style/cadastro.css">
+</head>
+
+<body>
+
+    <nav class="menu">
+        <a href="cadastro.html">Cadastrar</a>
+        <a href="index.html">Lista</a>
+    </nav>
+    <main class="container">
+        <div class="card">
+            <h1>Cadastrar Funcionário</h1>
+
+            <div id="formFuncionario">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input required type="text" id="nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input required type="text" id="sobrenome">
+                </div>
+
+                <div class="form-group">
+                    <label for="dataNascimento">Data de Nascimento:</label>
+                    <input required type="date" id="dataNascimento">
+                </div>
+
+                <div class="form-group">
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo">
+                        <option value="">Selecione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Carro de combate">Carro de combate</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="escolaridade">Escolaridade:</label>
+                    <input required type="text" id="escolaridade">
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Endereço:</label>
+                    <input required type="text" id="endereco">
+                </div>
+
+                <div class="form-group">
+                    <label for="salario">Salário:</label>
+                    <input required type="number" id="salario">
+                </div>
+
+                <div class="form-group">
+                    <label>Opção pelo VT:</label><br>
+                    <label><input required type="radio" name="vt" value="sim"> Sim</label>
+                    <label><input required type="radio" name="vt" value="nao"> Não</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="valorPassagem">Valor de passagem diário:</label>
+                    <input required type="number" id="valorPassagem" disabled>
+                </div>
+
+                <button type="submit" class="btn-azul" id="submit">Cadastrar Funcionário</button>
+
+                <div id="resultado" class="resultado">
+
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="../script/cadastro/eventosC.js"></script>
+
+    </main>
+</body>
+
+</html>
