@@ -33,5 +33,7 @@ if (pessoa) {
         document.getElementById("valorPassagem").value = 0;
     }
 
+    document.getElementById("foto").src = `../script/${pessoa.foto}`;
+
 
 }

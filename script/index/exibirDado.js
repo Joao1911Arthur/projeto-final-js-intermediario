@@ -27,6 +27,8 @@ export function exibirDados(pessoa) {
         document.getElementById("iValorEmpresaVT").textContent = "";
     }
 
+    document.getElementById("img").src = `script/${pessoa.foto}`;
+
 
 
     document.getElementById("iresult").classList.remove("d-none");

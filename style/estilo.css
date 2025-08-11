@@ -34,3 +34,15 @@
 main {
   padding: 20px;
 }
+
+#iresult{
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  margin-right: 20px;
+}

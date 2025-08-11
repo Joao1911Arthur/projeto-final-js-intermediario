@@ -84,7 +84,7 @@ body {
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .menu .container {
@@ -108,4 +108,18 @@ body {
 
 p {
   font-weight: bold;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  margin-right: 20px;
+}
+
+#iInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

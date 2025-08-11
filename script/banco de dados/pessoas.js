@@ -7,13 +7,13 @@ export const pessoas = [
         sexo: "Feminino",
         grauEscolaridade: "Ensino Superior Completo",
         endereco: "Rua das Flores, 123 - São Paulo, SP",
-        foto: "https://randomuser.me/api/portraits/women/44.jpg",
         optouVT: false,
         salarioAtual: 1518,
         valorPassagem: 22,
         email: "maria.silva@example.com",
         telefone: "(11) 99999-1234",
-        cargoAtual: "Analista de RH"
+        cargoAtual: "Analista de RH",
+        foto: "banco de dados/img/img1.jpg"
     },
     {
         id: 2,
@@ -23,13 +23,13 @@ export const pessoas = [
         sexo: "Masculino",
         grauEscolaridade: "Ensino Médio Completo",
         endereco: "Avenida Paulista, 1000 - São Paulo, SP",
-        foto: "https://randomuser.me/api/portraits/men/45.jpg",
         optouVT: true,
         salarioAtual: 2000,
         valorPassagem: 15,
         email: "joao.pereira@example.com",
         telefone: "(11) 98888-5678",
-        cargoAtual: "Motorista"
+        cargoAtual: "Motorista",
+        foto: "banco de dados/img/img2.jpg"
     },
     {
         id: 3,
@@ -39,13 +39,13 @@ export const pessoas = [
         sexo: "Feminino",
         grauEscolaridade: "Ensino Superior Incompleto",
         endereco: "Rua Central, 250 - Rio de Janeiro, RJ",
-        foto: "https://randomuser.me/api/portraits/women/46.jpg",
         optouVT: true,
         salarioAtual: 1800,
         valorPassagem: 20,
         email: "ana.souza@example.com",
         telefone: "(21) 97777-4567",
-        cargoAtual: "Atendente"
+        cargoAtual: "Atendente",
+        foto: "banco de dados/img/img3.jpeg"
     },
     {
         id: 4,
@@ -55,13 +55,14 @@ export const pessoas = [
         sexo: "Masculino",
         grauEscolaridade: "Ensino Técnico Completo",
         endereco: "Rua da Paz, 45 - Belo Horizonte, MG",
-        foto: "https://randomuser.me/api/portraits/men/46.jpg",
+        
         optouVT: false,
         salarioAtual: 2500,
         valorPassagem: 10,
         email: "carlos.oliveira@example.com",
         telefone: "(31) 96666-7890",
-        cargoAtual: "Técnico de Informática"
+        cargoAtual: "Técnico de Informática",
+        foto: "banco de dados/img/img4.jpg"
     },
     {
         id: 5,
@@ -71,13 +72,13 @@ export const pessoas = [
         sexo: "Feminino",
         grauEscolaridade: "Ensino Superior Completo",
         endereco: "Rua Primavera, 300 - Curitiba, PR",
-        foto: "https://randomuser.me/api/portraits/women/47.jpg",
         optouVT: true,
         salarioAtual: 3200,
         valorPassagem: 18,
         email: "fernanda.almeida@example.com",
         telefone: "(41) 95555-1122",
-        cargoAtual: "Engenheira Civil"
+        cargoAtual: "Engenheira Civil",
+        foto: "banco de dados/img/img5.jpg"
     },
     {
         id: 6,
@@ -87,13 +88,13 @@ export const pessoas = [
         sexo: "Masculino",
         grauEscolaridade: "Ensino Médio Completo",
         endereco: "Rua das Palmeiras, 85 - Salvador, BA",
-        foto: "https://randomuser.me/api/portraits/men/47.jpg",
         optouVT: false,
         salarioAtual: 1700,
         valorPassagem: 12,
         email: "rafael.martins@example.com",
         telefone: "(71) 94444-3344",
-        cargoAtual: "Vendedor"
+        cargoAtual: "Vendedor",
+        foto: "banco de dados/img/img6.png"
     },
     {
         id: 7,
@@ -103,13 +104,13 @@ export const pessoas = [
         sexo: "Feminino",
         grauEscolaridade: "Ensino Técnico Completo",
         endereco: "Rua do Sol, 90 - Recife, PE",
-        foto: "https://randomuser.me/api/portraits/women/48.jpg",
         optouVT: true,
         salarioAtual: 2100,
         valorPassagem: 16,
         email: "juliana.costa@example.com",
         telefone: "(81) 93333-5566",
-        cargoAtual: "Assistente de Marketing"
+        cargoAtual: "Assistente de Marketing",
+        foto: "banco de dados/img/img7.jpg"
     },
     {
         id: 8,
@@ -119,12 +120,12 @@ export const pessoas = [
         sexo: "Masculino",
         grauEscolaridade: "Ensino Superior Completo",
         endereco: "Avenida Atlântica, 500 - Florianópolis, SC",
-        foto: "https://randomuser.me/api/portraits/men/48.jpg",
         optouVT: true,
         salarioAtual: 4000,
         valorPassagem: 25,
         email: "pedro.santos@example.com",
         telefone: "(48) 92222-7788",
-        cargoAtual: "Desenvolvedor Full Stack"
+        cargoAtual: "Desenvolvedor Full Stack",
+        foto: "banco de dados/img/img8.jpeg"
     }
 ];
