@@ -8,8 +8,8 @@ const pessoa = pessoas.find(p =>
 
 
 export function calcularPassagem(pessoa) {
-    if (pessoa.opcaoVT) {
-        var passagem = Math.round(0.06* pessoa.salario);
+    if (pessoa.optouVT) {
+        var passagem = Math.round(0.06* pessoa.salarioAtual);
         return passagem;
     } else {
         return 0;

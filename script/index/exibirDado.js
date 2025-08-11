@@ -8,16 +8,17 @@ export function exibirDados(pessoa) {
     const anoNascimento = new Date(pessoa.dataNascimento).getFullYear();
     pessoa.idade = anoAtual - anoNascimento;
 
-    document.getElementById("inome").textContent = pessoa.nome;
+    document.getElementById("iId").textContent = `id: ${pessoa.id}`;
+    document.getElementById("inome").textContent = pessoa.nome + " " + pessoa.sobrenome;
     document.getElementById("inasc").textContent = `Data de nascimento: ${pessoa.dataNascimento}`;
     document.getElementById("iesco").textContent = `Escolaridade: ${pessoa.grauEscolaridade}`;
     document.getElementById("iender").textContent = `Endereço: ${pessoa.endereco}`;
     document.getElementById("iidade").textContent = `Idade: ${pessoa.idade}`;
-    document.getElementById("isalario").textContent = `Salário: R$${pessoa.salario}`;
+    document.getElementById("isalario").textContent = `Salário: R$${pessoa.salarioAtual}`;
     document.getElementById("iValorEmpresaFGTS").textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
-    document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.opcaoVT >= true ? "Optante" : "Não optou"}`;
+    document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.optouVT >= true ? "Optante" : "Não optou"}`;
 
-    if (pessoa.opcaoVT) {
+    if (pessoa.optouVT) {
         document.getElementById("ipassagem").textContent = `Passagem: R$${calcularPassagem(pessoa)}`;
         document.getElementById("iValorEmpresaVT").textContent = `Valor a pagar pela empresa (VT): R$${calcularDesconto(pessoa)}`;
 
