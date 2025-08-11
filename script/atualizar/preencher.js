@@ -14,7 +14,7 @@ if (pessoa) {
     document.getElementById("sobrenome").value = pessoa.sobrenome;
     document.getElementById("email").value = pessoa.email;
     document.getElementById("telefone").value = pessoa.telefone;
-    document.getElementById("dataNascimento").value = pessoa.dtNascimento;
+    document.getElementById("dataNascimento").value = pessoa.dataNascimento;
     document.getElementById("endereco").value = pessoa.endereco;
     document.getElementById("escolaridade").value = pessoa.grauEscolaridade;
     document.getElementById("salario").value = pessoa.salarioAtual;
