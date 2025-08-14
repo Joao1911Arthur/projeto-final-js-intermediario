@@ -1,11 +1,11 @@
 import { pessoas } from '../banco de dados/pessoas.js';
+import { local } from '../banco de dados/localStorage.js';
 
-console.log(window.location.search)
 
 var seach = window.location.search;
-const id = seach.split('?')[1];
-const pessoa = pessoas.find(p => p.id == id);
-console.log(pessoa);
+export const id = seach.split('?')[1];
+const pessoa = local.find(p => p.id == id);
+
 
 
 if (pessoa) {
@@ -20,7 +20,7 @@ if (pessoa) {
     document.getElementById("salario").value = pessoa.salarioAtual;
     document.getElementById("cargo").value = pessoa.cargoAtual;
     document.getElementById("sexo").value = pessoa.sexo;
-
+    document.getElementById("foto").src = "../script/" + pessoa.foto;
 
     if (pessoa.optouVT) {
         console.log("optou por VT")
@@ -32,8 +32,6 @@ if (pessoa) {
         document.getElementById("vt").checked = false;
         document.getElementById("valorPassagem").value = 0;
     }
-
-    document.getElementById("foto").src = `../script/${pessoa.foto}`;
-
-
 }
+
+

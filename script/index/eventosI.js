@@ -34,6 +34,8 @@ container.addEventListener('click', (event) => {
     );
     var id = document.getElementById("iId").textContent;
     console.log(pessoa.id);
-    
+
     window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`
 });
+
+
