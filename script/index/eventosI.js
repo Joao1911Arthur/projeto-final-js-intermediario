@@ -1,6 +1,7 @@
 import { filtro } from "./filtro.js";
 import { pessoas } from "../banco de dados/pessoas.js";
 import { exibirDados } from "./exibirDado.js";
+import {local} from "../banco de dados/localStorage.js"
 
 
 const pesquisa = document.getElementById("barraPesquisa");
@@ -36,6 +37,10 @@ container.addEventListener('click', (event) => {
     console.log(pessoa.id);
 
     window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`
+
+    if(local == null){
+        localStorage.setItem("pessoas", JSON.stringify(pessoas));
+    }
 });
 
 
