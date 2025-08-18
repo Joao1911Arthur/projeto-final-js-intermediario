@@ -16,9 +16,12 @@ document.getElementById("submit").addEventListener("click", () => {
     const cargo1 = document.getElementById("cargo").value;
     const sexo1 = document.getElementById("sexo").value;
     const valorPassagem1 = document.getElementById("valorPassagem").value;
-    const vt1 = document.querySelector('input[name="vt"]:checked') > "sim" ? true : false;
+    var vt1 = document.querySelector('input[name="vt"]:checked').value == "sim" ? true : false;
     const foto1 = pessoas.find(p => p.id == id).foto;
-
+    console.log(vt1);
+    
+   
+    
 
     const pessoaAtualizada = {
         id: parseInt(id),

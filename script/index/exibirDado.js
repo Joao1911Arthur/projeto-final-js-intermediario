@@ -17,6 +17,11 @@ export function exibirDados(pessoa) {
     document.getElementById("isalario").textContent = `Salário: R$${pessoa.salarioAtual}`;
     document.getElementById("iValorEmpresaFGTS").textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
     document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.optouVT >= true ? "Optante" : "Não optou"}`;
+    document.getElementById("iemail").textContent = `E-mail: ${pessoa.email}`;
+    document.getElementById("itel").textContent = `Telefone: ${pessoa.telefone}`;
+    document.getElementById("isexo").textContent = `Sexo: ${pessoa.sexo}`;
+    document.getElementById("icargo").textContent = `Cargo: ${pessoa.cargoAtual}`;
+    
 
     if (pessoa.optouVT) {
         document.getElementById("ipassagem").textContent = `Passagem: R$${calcularPassagem(pessoa)}`;

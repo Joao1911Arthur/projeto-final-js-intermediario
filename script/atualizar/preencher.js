@@ -35,3 +35,10 @@ radiosVT.forEach((radio) => {
     }
   });
 });
+
+if(pessoa.optouVT){
+    document.querySelector('input[name="vt"][value="sim"]').checked = true;
+    
+}else{
+  document.querySelector('input[name="vt"][value="nao"]').checked = true;
+}
