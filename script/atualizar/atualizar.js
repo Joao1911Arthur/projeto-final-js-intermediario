@@ -1,4 +1,5 @@
 import { local } from "../banco de dados/localStorage.js";
+import { pessoas } from "../banco de dados/pessoas.js";
 
 
 document.getElementById("submit").addEventListener("click", () => {
@@ -15,7 +16,8 @@ document.getElementById("submit").addEventListener("click", () => {
     const cargo1 = document.getElementById("cargo").value;
     const sexo1 = document.getElementById("sexo").value;
     const valorPassagem1 = document.getElementById("valorPassagem").value;
-    const vt1 = document.getElementById("vt").checked;
+    const vt1 = document.querySelector('input[name="vt"]:checked') > "sim" ? true : false;
+    const foto1 = pessoas.find(p => p.id == id).foto;
 
 
     const pessoaAtualizada = {
@@ -31,9 +33,14 @@ document.getElementById("submit").addEventListener("click", () => {
         cargoAtual: cargo1,
         sexo: sexo1,
         optouVT: vt1,
-        valorPassagem: vt ? valorPassagem : 0
+        valorPassagem: vt1 ? valorPassagem1 : 0,
+        foto: foto1
     };
 
     localStorage.setItem("pessoas", JSON.stringify(local.map(p => p.id == id ? pessoaAtualizada : p)));
+
+    window.scrollTo(0, 0);
+
+    alert("Dados atualizados com sucesso!");
 
 })

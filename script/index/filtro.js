@@ -1,21 +1,20 @@
 // arquivo: filtro.js
 
-import { pessoas } from "../banco de dados/pessoas.js";
-
 const pesquisa = document.getElementById("barraPesquisa");
 const divResultados = document.getElementById("resultados");
 const submit = document.getElementById("buscar-btn");
 
-export function filtro() {
+export function filtro(neh) {
     const termo = pesquisa.value.toLowerCase().trim();
     divResultados.innerHTML = ""; // limpa resultados anteriores
+
 
     if (termo === "") {
         submit.disabled = true;
         return;
     }
 
-    const filtrados = pessoas.filter(p =>
+    const filtrados = neh.filter(p =>
         p.nome.toLowerCase().includes(termo)
     );
 

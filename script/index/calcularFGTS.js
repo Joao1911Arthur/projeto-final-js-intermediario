@@ -1,12 +1,20 @@
 import { pessoas } from "../banco de dados/pessoas.js";
+import { local } from "../banco de dados/localStorage.js"
 
 var pesquisa = document.getElementById("barraPesquisa");
 var termo = pesquisa.value.toLowerCase().trim();
-const pessoa = pessoas.find(p =>
+
+if (local == null) {
+    const pessoa = pessoas.find(p =>
+        p.nome.toLowerCase().trim() === termo
+    );
+}else{
+    const pessoa = local.find(p =>
     p.nome.toLowerCase().trim() === termo
 );
+}
 
 export function calcularFGTS(pessoa) {
-    var FGTS = pessoa.salarioAtual * 0.08; 
+    var FGTS = pessoa.salarioAtual * 0.08;
     return Math.round(FGTS);
 }
