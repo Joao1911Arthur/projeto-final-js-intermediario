@@ -7,6 +7,12 @@ const pesquisa = document.getElementById("barraPesquisa");
 const submit = document.getElementById("buscar-btn");
 const container = document.getElementById("iAtualizar");
 
+(function () {
+    if (local == null) {
+        localStorage.setItem("pessoas", JSON.stringify(pessoas));
+    }
+})();
+
 pesquisa.addEventListener("keyup", () => {
 
     if (local == null) {
