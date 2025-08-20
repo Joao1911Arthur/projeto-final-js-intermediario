@@ -21,7 +21,7 @@ export function exibirDados(pessoa) {
     document.getElementById("itel").textContent = `Telefone: ${pessoa.telefone}`;
     document.getElementById("isexo").textContent = `Sexo: ${pessoa.sexo}`;
     document.getElementById("icargo").textContent = `Cargo: ${pessoa.cargoAtual}`;
-    
+
 
     if (pessoa.optouVT) {
         document.getElementById("ipassagem").textContent = `Passagem: R$${calcularPassagem(pessoa)}`;
@@ -32,9 +32,16 @@ export function exibirDados(pessoa) {
         document.getElementById("iValorEmpresaVT").textContent = "";
     }
 
-    document.getElementById("img").src = `script/${pessoa.foto}`;
+    const imagem = pessoa.foto.split("/")[0];
 
+    if (imagem == "banco de dados") {
+        document.getElementById("img").src = "script/" + pessoa.foto;
+    } else {
+        console.log(imagem);
+        document.getElementById("img").src = pessoa.foto
+    }
 
+    console.log(pessoa)
 
     document.getElementById("iresult").classList.remove("d-none");
 }

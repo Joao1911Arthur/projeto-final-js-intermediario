@@ -13,6 +13,7 @@ export function calcularDesconto(pessoa) {
     if (200 > passagem) {
         var calculo = 200 - passagem;
         return calculo;
+        console.log(calculo);
     }else{
         return 0;
     }

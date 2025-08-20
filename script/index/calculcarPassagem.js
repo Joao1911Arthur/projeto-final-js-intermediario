@@ -1,5 +1,4 @@
-import { local } from "../banco de dados/localStorage.js"
-import { pessoas } from "../banco de dados/pessoas.js";
+import { pessoas,local } from "../banco de dados/pessoas.js";
 
 var pesquisa = document.getElementById("barraPesquisa");
 var termo = pesquisa.value.toLowerCase().trim();

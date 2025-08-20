@@ -1,5 +1,4 @@
-import { local } from "../banco de dados/localStorage.js";
-import { pessoas } from "../banco de dados/pessoas.js";
+import { pessoas,local } from "../banco de dados/pessoas.js";
 
 
 document.getElementById("submit").addEventListener("click", () => {

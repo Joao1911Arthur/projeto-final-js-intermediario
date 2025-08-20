@@ -13,8 +13,8 @@ export function exibirDados() {
         <p><strong>Telefone:</strong> ${dados.telefone}</p>
         <p><strong>Idade:</strong> ${dados.idade}</p>
         <p><strong>Sexo:</strong> ${dados.sexo}</p>
-        <p><strong>Cargo:</strong> ${dados.cargo}</p>
-        <p><strong>Escolaridade:</strong> ${dados.escolaridade}</p>
+        <p><strong>Cargo:</strong> ${dados.cargoAtual}</p>
+        <p><strong>Escolaridade:</strong> ${dados.grauEscolaridade}</p>
         <p><strong>Endereço:</strong> ${dados.endereco}</p>
         <p><strong>Salário:</strong> R$ ${dados.salario}</p>
         <p><strong>Vale Transporte:</strong> ${dados.vt}</p>

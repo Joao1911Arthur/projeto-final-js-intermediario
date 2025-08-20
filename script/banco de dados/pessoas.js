@@ -55,7 +55,7 @@ export const pessoas = [
         sexo: "Masculino",
         grauEscolaridade: "Ensino Técnico Completo",
         endereco: "Rua da Paz, 45 - Belo Horizonte, MG",
-        
+
         optouVT: false,
         salarioAtual: 2500,
         valorPassagem: 10,
@@ -129,3 +129,6 @@ export const pessoas = [
         foto: "banco de dados/img/img8.jpeg"
     }
 ];
+
+export const local = JSON.parse(localStorage.getItem("pessoas"));
+

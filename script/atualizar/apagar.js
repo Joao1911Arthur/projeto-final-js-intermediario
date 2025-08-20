@@ -1,4 +1,4 @@
-import{local} from "../banco de dados/localStorage.js"
+import { pessoas,local } from "../banco de dados/pessoas.js";
 
     const delet = document.getElementById("delete");
 

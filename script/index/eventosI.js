@@ -1,7 +1,6 @@
 import { filtro } from "./filtro.js";
-import { pessoas } from "../banco de dados/pessoas.js";
+import { pessoas,local } from "../banco de dados/pessoas.js";
 import { exibirDados } from "./exibirDado.js";
-import { local } from "../banco de dados/localStorage.js"
 
 const pesquisa = document.getElementById("barraPesquisa");
 const submit = document.getElementById("buscar-btn");
@@ -46,14 +45,12 @@ submit.addEventListener("click", () => {
         let pdp = local.find(p =>
             p.nome.toLowerCase().trim() === termo
         );
-        console.log(pdp);
 
         if (pdp) {
             exibirDados(pdp);
         } else {
             alert("Pessoa não encontrada.");
         }
-        console.log(pdp, "!");
     }
 
 });
@@ -73,9 +70,6 @@ container.addEventListener('click', (event) => {
         );
         window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`
     }
-
-
-
 
     if (local == null) {
         localStorage.setItem("pessoas", JSON.stringify(pessoas));
