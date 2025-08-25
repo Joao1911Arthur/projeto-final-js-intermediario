@@ -1,24 +1,39 @@
-import { pessoas,local } from "../banco de dados/pessoas.js";
+import { pessoas, local } from "../banco de dados/pessoas.js";
 
 var pesquisa = document.getElementById("barraPesquisa");
-var termo = pesquisa.value.toLowerCase().trim();
+const seach = window.location.search;
+const id = seach.split('?')[1];
+var neh = local.find(p => p.id == id);
 
-if (local == null) {
-    const pessoa = pessoas.find(p =>
-        p.nome.toLowerCase().trim() === termo
-    );
-} else {
-    const pessoa = local.find(p =>
-        p.nome.toLowerCase().trim() === termo
-    );
+
+if(pesquisa != null){
+    var termo = pesquisa.value.toLowerCase().trim();
+
 }
+
+const pessoa = local.find(p =>
+    p.nome.toLowerCase().trim() === termo
+);
 
 
 export function calcularPassagem(pessoa) {
-    if (pessoa.optouVT) {
-        var passagem = Math.round(0.06 * pessoa.salarioAtual);
-        return passagem;
+
+    if (termo != "") {
+
+        if (neh.optouVT) {
+            var passagem = Math.round(0.06 * pessoa.salarioAtual);
+            return passagem;
+        } else {
+            return 0;
+        }
+
     } else {
-        return 0;
+        if (pessoa.optouVT) {
+            var passagem = Math.round(0.06 * pessoa.salarioAtual);
+            return passagem;
+        } else {
+            return 0;
+        }
     }
+
 }

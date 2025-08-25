@@ -1,33 +1,33 @@
 import { exibirDados } from "./exibirDados.js";
 import { pegarDados } from "./pegarDados.js";
-import { pessoas, local } from "../banco de dados/pessoas.js";
+import { pessoas } from "../banco de dados/pessoas.js";
 
 const submit = document.getElementById("submit");
 const radiosVT = document.querySelectorAll('input[name="vt"]');
 
+// Inicializa o Local Storage se estiver vazio
 (function () {
-  if (local == null) {
+  if (!localStorage.getItem("pessoas")) {
     localStorage.setItem("pessoas", JSON.stringify(pessoas));
   }
 })();
 
 submit.addEventListener("click", () => {
-
   exibirDados();
 
-  if (local == null) {
-    localStorage.setItem("pessoas", JSON.stringify(pessoas));
-    local.push(pegarDados());
-  } else {
-    local.push(pegarDados());
-    localStorage.setItem("pessoas", JSON.stringify(local));
-  }
+  // 🔹 Sempre pega os dados direto do localStorage
+  let local = JSON.parse(localStorage.getItem("pessoas")) || [];
 
-  console.log(pessoas);
+  // adiciona os novos dados
+  local.push(pegarDados());
 
+  // salva de novo no localStorage
+  localStorage.setItem("pessoas", JSON.stringify(local));
+
+  console.log(local);
 });
 
-
+// Lógica dos radios
 radiosVT.forEach((radio) => {
   radio.addEventListener("change", () => {
     const valorPassagem = document.getElementById("valorPassagem");

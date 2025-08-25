@@ -1,24 +1,24 @@
 import { filtro } from "./filtro.js";
-import { pessoas,local } from "../banco de dados/pessoas.js";
+import { pessoas } from "../banco de dados/pessoas.js"; 
 import { exibirDados } from "./exibirDado.js";
 
 const pesquisa = document.getElementById("barraPesquisa");
 const submit = document.getElementById("buscar-btn");
 const container = document.getElementById("iAtualizar");
 
+// Inicializa o localStorage se estiver vazio
 (function () {
-    if (local == null) {
+    if (!localStorage.getItem("pessoas")) {
         localStorage.setItem("pessoas", JSON.stringify(pessoas));
     }
 })();
 
+// Evento de digitação no campo de pesquisa
 pesquisa.addEventListener("keyup", () => {
+    // 🔹 carrega os dados sempre atualizados
+    let local = JSON.parse(localStorage.getItem("pessoas")) || [];
 
-    if (local == null) {
-        filtro(pessoas);
-    } else {
-        filtro(local);
-    }
+    filtro(local);
 
     if (pesquisa.value.trim() === "") {
         submit.disabled = true;
@@ -27,52 +27,36 @@ pesquisa.addEventListener("keyup", () => {
     }
 });
 
+// Evento de clique no botão de busca
 submit.addEventListener("click", () => {
+    let local = JSON.parse(localStorage.getItem("pessoas")) || [];
 
-    if (local == null) {
-        let termo = pesquisa.value.trim().toLowerCase();
-        let pessoa = pessoas.find(p =>
-            p.nome.toLowerCase().trim() === termo
-        );
+    console.log(local);
 
-        if (pessoa) {
-            exibirDados(pessoa);
-        } else {
-            alert("Pessoa não encontrada.");
-        }
+    let termo = pesquisa.value.trim().toLowerCase();
+    let pdp = local.find(p =>
+        p.nome.toLowerCase().trim() === termo
+    );
+
+    if (pdp) {
+        exibirDados(pdp);
     } else {
-        let termo = pesquisa.value.trim().toLowerCase();
-        let pdp = local.find(p =>
-            p.nome.toLowerCase().trim() === termo
-        );
-
-        if (pdp) {
-            exibirDados(pdp);
-        } else {
-            alert("Pessoa não encontrada.");
-        }
+        alert("Pessoa não encontrada.");
     }
-
 });
 
-
+// Evento de clique no botão de atualizar
 container.addEventListener('click', (event) => {
-    if (local == null) {
-        let termo = pesquisa.value.trim().toLowerCase();
-        let pessoa = pessoas.find(p =>
-            p.nome.toLowerCase().trim() === termo
-        );
-        window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`
-    } else {
-        let termo = pesquisa.value.trim().toLowerCase();
-        let pessoa = local.find(p =>
-            p.nome.toLowerCase().trim() === termo
-        );
-        window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`
-    }
+    let local = JSON.parse(localStorage.getItem("pessoas")) || [];
 
-    if (local == null) {
-        localStorage.setItem("pessoas", JSON.stringify(pessoas));
+    let termo = pesquisa.value.trim().toLowerCase();
+    let pessoa = local.find(p =>
+        p.nome.toLowerCase().trim() === termo
+    );
+
+    if (pessoa) {
+        window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`;
+    } else {
+        alert("Nenhuma pessoa selecionada para atualizar.");
     }
 });
-
