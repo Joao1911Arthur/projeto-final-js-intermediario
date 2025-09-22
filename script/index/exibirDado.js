@@ -4,21 +4,22 @@ import { calcularDesconto } from "./calcularDesconto.js";
 import { calcularFGTS } from "./calcularFGTS.js";
 
 export function exibirDados(pessoa) {
+
+    pessoa = pessoa.funcionario;
+
     const anoAtual = new Date().getFullYear();
     const anoNascimento = new Date(pessoa.dataNascimento).getFullYear();
     pessoa.idade = anoAtual - anoNascimento;
 
     document.getElementById("iId").textContent = `id: ${pessoa.id}`;
     document.getElementById("inome").textContent = pessoa.nome + " " + pessoa.sobrenome;
-    document.getElementById("inasc").textContent = `Data de nascimento: ${pessoa.dataNascimento}`;
+    document.getElementById("inasc").textContent = `Data de nascimento: ${pessoa.dtNascimento}`;
     document.getElementById("iesco").textContent = `Escolaridade: ${pessoa.grauEscolaridade}`;
     document.getElementById("iender").textContent = `Endereço: ${pessoa.endereco}`;
     document.getElementById("iidade").textContent = `Idade: ${pessoa.idade}`;
     document.getElementById("isalario").textContent = `Salário: R$${pessoa.salarioAtual}`;
     document.getElementById("iValorEmpresaFGTS").textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
     document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.optouVT >= true ? "Optante" : "Não optou"}`;
-    document.getElementById("iemail").textContent = `E-mail: ${pessoa.email}`;
-    document.getElementById("itel").textContent = `Telefone: ${pessoa.telefone}`;
     document.getElementById("isexo").textContent = `Sexo: ${pessoa.sexo}`;
     document.getElementById("icargo").textContent = `Cargo: ${pessoa.cargoAtual}`;
 
@@ -32,14 +33,7 @@ export function exibirDados(pessoa) {
         document.getElementById("iValorEmpresaVT").textContent = "";
     }
 
-    const imagem = pessoa.foto.split("/")[0];
-
-    if (imagem == "banco de dados") {
-        document.getElementById("img").src = "script/" + pessoa.foto;
-    } else {
-        console.log(imagem);
-        document.getElementById("img").src = pessoa.foto
-    }
+    
 
     console.log(pessoa)
 

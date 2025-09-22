@@ -23,15 +23,7 @@ export function pegarDados() {
   const endereco = document.getElementById("endereco").value;
   const foto = document.getElementById("ifoto");
 
-  foto.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    if (file) {
-      console.log("Nome:", file.name);
-      console.log("Tamanho:", file.size, "bytes");
-      console.log("Tipo:", file.type);
-      console.log("Objeto File:", file);
-    }
-  });
+ 
 
   if (vt === "sim") {
     document.getElementById("valorPassagem").disabled = false;

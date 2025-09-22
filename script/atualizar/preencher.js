@@ -1,51 +1,58 @@
-import { pessoas, local } from "../banco de dados/pessoas.js";
-import { calcularPassagem } from "../index/calculcarPassagem.js";
-
-
-var seach = window.location.search;
-export const id = seach.split('?')[1];
-const pessoa = local.find(p => p.id == id);
-const radiosVT = document.querySelectorAll('input[name="vt"]');
-
-
-if (pessoa) {
-  document.getElementById("iId").textContent = `id: ${pessoa.id}`;
-  document.getElementById("nome").value = pessoa.nome;
-  document.getElementById("sobrenome").value = pessoa.sobrenome;
-  document.getElementById("email").value = pessoa.email;
-  document.getElementById("telefone").value = pessoa.telefone;
-  document.getElementById("dataNascimento").value = pessoa.dataNascimento;
-  document.getElementById("endereco").value = pessoa.endereco;
-  document.getElementById("escolaridade").value = pessoa.grauEscolaridade;
-  document.getElementById("salario").value = pessoa.salarioAtual;
-  document.getElementById("cargo").value = pessoa.cargoAtual;
-  document.getElementById("sexo").value = pessoa.sexo;
-  document.getElementById("foto").src = "../script/" + pessoa.foto;
-  document.getElementById("valorPassagem").value = calcularPassagem(pessoa);
-
-}
-
-
-
-
-(function () {
-  if (pessoa.optouVT) {
-    document.querySelector('input[name="vt"][value="sim"]').checked = true;
-
-  } else {
-    document.querySelector('input[name="vt"][value="nao"]').checked = true;
-  }
-})()
-
-radiosVT.forEach((radio) => {
-  radio.addEventListener("click", () => {
-    const valorPassagem = document.getElementById("valorPassagem");
-
-    if (radio.value === "sim") {
-      valorPassagem.disabled = false;
-    } else {
-      valorPassagem.disabled = true;
-      valorPassagem.value = "";
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  carregarDetalhesFuncionario();
 });
+
+let funcionario = {};
+
+
+function carregarDetalhesFuncionario() {
+  var idTeste = window.location.search.substring(1);
+
+  fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios/${idTeste}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then(resp => resp.json())
+    .then(dados => {
+      funcionario = dados.funcionario;
+
+      console.log("Funcionário carregado:", funcionario);
+
+
+      if (funcionario) {
+        document.getElementById("iId").textContent = `id: ${idTeste}`;
+        document.getElementById("nome").value = funcionario.nome || "";
+        document.getElementById("sobrenome").value = funcionario.sobrenome || "";
+        document.getElementById("dataNascimento").value = funcionario.dtNascimento || "";
+        document.getElementById("endereco").value = funcionario.endereco || "";
+        document.getElementById("escolaridade").value = funcionario.grauEscolaridade || "";
+        document.getElementById("salario").value = funcionario.salarioAtual || "";
+        document.getElementById("cargo").value = funcionario.cargoAtual || "";
+        document.getElementById("sexo").value = funcionario.sexo || "";
+        document.getElementById("foto").src = "";
+
+
+        const valorPassagem = document.getElementById("valorPassagem");
+        valorPassagem.value = funcionario.valorPassagem || "";
+        valorPassagem.disabled = !funcionario.optouVT;
+
+        if (funcionario.optouVT) {
+          document.querySelector('input[name="vt"][value="sim"]').checked = true;
+        } else {
+          document.querySelector('input[name="vt"][value="nao"]').checked = true;
+        }
+
+        document.querySelectorAll('input[name="vt"]').forEach(radio => {
+          radio.addEventListener("change", () => {
+            if (radio.value === "sim") {
+              valorPassagem.disabled = false;
+            } else {
+              valorPassagem.disabled = true;
+              valorPassagem.value = "";
+            }
+          });
+        });
+      }
+    })
+    .catch(err => console.error("Erro na requisição:", err));
+}

@@ -1,6 +1,7 @@
 import { exibirDados } from "./exibirDados.js";
 import { pegarDados } from "./pegarDados.js";
 import { pessoas } from "../banco de dados/pessoas.js";
+import { pegarFuncionarios } from "../banco de dados/API.js";
 
 const submit = document.getElementById("submit");
 const radiosVT = document.querySelectorAll('input[name="vt"]');
@@ -10,6 +11,8 @@ const radiosVT = document.querySelectorAll('input[name="vt"]');
   if (!localStorage.getItem("pessoas")) {
     localStorage.setItem("pessoas", JSON.stringify(pessoas));
   }
+
+  console.log()
 })();
 
 submit.addEventListener("click", () => {
@@ -24,7 +27,42 @@ submit.addEventListener("click", () => {
   // salva de novo no localStorage
   localStorage.setItem("pessoas", JSON.stringify(local));
 
-  console.log(local);
+
+
+  const neh = pegarDados();
+
+  fetch('https://node-vercel-app-rho.vercel.app/api/funcionarios', {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      "funcionario": {
+        "nome": `${neh.nome}`,
+        "sobrenome": `${neh.sobrenome}`,
+        "sexo": `${neh.sexo}`,
+        "dtNascimento": `${neh.dataNascimento}`,
+        "grauEscolaridade": `${neh.grauEscolaridade}`,
+        "endereco": `${neh.endereco}`,
+        "foto": `foto.png `,
+        "salarioAtual": `${neh.salarioAtual}`,
+        "valorPassagem": `${neh.valorPassagem}`,
+        "optouVT": `${neh.vt}`,
+        "historicoCargosESalarios": [
+          {
+            "cargo": `${neh.cargoAtual}`,
+            "salario": "3000",
+            "dataInicio": "2024-01-01",
+            "dataFim": "2025-01-01"
+          }
+        ]
+      }
+    }
+    )
+  })
+    .then(resp => resp.json())
+    .then(dados => console.log(dados))
+    .catch(err => console.error("Erro na requisição:", err));
+
+
 });
 
 // Lógica dos radios
