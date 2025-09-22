@@ -6,9 +6,7 @@ const submit = document.getElementById("buscar-btn");
 const container = document.getElementById("iAtualizar");
 
 
-(function () {
-    pegarFuncionarios();
-})()
+addEventListener("DOMContentLoaded", pegarFuncionarios);
 
 function pegarFuncionarios() {
     fetch('https://node-vercel-app-rho.vercel.app/api/funcionarios', {
