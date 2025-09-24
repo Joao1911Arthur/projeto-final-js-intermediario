@@ -18,7 +18,6 @@ function pegarFuncionarios() {
 
             var funcionarios = dados;
 
-            console.log(funcionarios);
 
 
             // Evento de digitação no campo de pesquisa
@@ -51,24 +50,28 @@ function pegarFuncionarios() {
                 }
             });
 
+            // Evento de clique no botão de atualizar
+            container.addEventListener('click', (event) => {
+
+                let termo = pesquisa.value.trim().toLowerCase();
+                let pessoa = funcionarios.find(p =>
+                    p.funcionario.nome.toLowerCase().trim() === termo
+                );
+
+                console.log(pessoa);
+
+                if (pessoa) {
+                    window.location.href = `html/atualizarFuncionario.html?${pessoa._id}`;
+                } else {
+                    alert("Nenhuma pessoa selecionada para atualizar.");
+                }
+            });
+
         })
         .catch(err => console.error("Erro na requisição:", err));
+
 
 }
 
 
-// Evento de clique no botão de atualizar
-container.addEventListener('click', (event) => {
-
-    let termo = pesquisa.value.trim().toLowerCase();
-    let pessoa = funcionarios.find(p =>
-        p.nome.toLowerCase().trim() === termo
-    );
-
-    if (pessoa) {
-        window.location.href = `html/atualizarFuncionario.html?${pessoa.id}`;
-    } else {
-        alert("Nenhuma pessoa selecionada para atualizar.");
-    }
-});
 

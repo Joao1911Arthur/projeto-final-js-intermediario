@@ -32,6 +32,7 @@ export function filtro(dados) {
     funcionarios = dados;
 
 
+
     if (termo === "") {
         submit.disabled = true;
         return;
@@ -41,7 +42,6 @@ export function filtro(dados) {
         p.funcionario.nome.toLowerCase().includes(termo)
     );
 
-    console.log(filtrados);
 
     submit.disabled = filtrados.length === 0;
 
