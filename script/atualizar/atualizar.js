@@ -1,45 +1,50 @@
-import { pessoas,local } from "../banco de dados/pessoas.js";
-
 
 document.getElementById("submit").addEventListener("click", () => {
 
     const id = document.getElementById("iId").textContent.split(": ")[1];
-    const nome1 = document.getElementById("nome").value;
-    const sobrenome1 = document.getElementById("sobrenome").value;
-    const email1 = document.getElementById("email").value;
-    const tel1 = document.getElementById("telefone").value;
-    const data1 = document.getElementById("dataNascimento").value;
-    const ende1 = document.getElementById("endereco").value;
-    const esco1 = document.getElementById("escolaridade").value;
-    const salario1 = document.getElementById("salario").value;
-    const cargo1 = document.getElementById("cargo").value;
-    const sexo1 = document.getElementById("sexo").value;
-    const valorPassagem1 = document.getElementById("valorPassagem").value;
-    var vt1 = document.querySelector('input[name="vt"]:checked').value == "sim" ? true : false;
-    const foto1 = pessoas.find(p => p.id == id).foto;
-    console.log(vt1);
-    
-   
-    
+    const nome = document.getElementById("nome").value;
+    const sobrenome = document.getElementById("sobrenome").value;
+    const data = document.getElementById("dataNascimento").value;
+    const ende = document.getElementById("endereco").value;
+    const esco = document.getElementById("escolaridade").value;
+    const salario = document.getElementById("salario").value;
+    const cargo = document.getElementById("cargo").value;
+    const sexo = document.getElementById("sexo").value;
+    const valorPassagem = document.getElementById("valorPassagem").value;
+    var vt = document.querySelector('input[name="vt"]:checked').value == "sim" ? true : false;
+    console.log(vt);
 
-    const pessoaAtualizada = {
-        id: parseInt(id),
-        nome: nome1,
-        sobrenome: sobrenome1,
-        email: email1,
-        telefone: tel1,
-        dataNascimento: data1,
-        endereco: ende1,
-        grauEscolaridade: esco1,
-        salarioAtual: salario1,
-        cargoAtual: cargo1,
-        sexo: sexo1,
-        optouVT: vt1,
-        valorPassagem: vt1 ? valorPassagem1 : 0,
-        foto: foto1
-    };
 
-    localStorage.setItem("pessoas", JSON.stringify(local.map(p => p.id == id ? pessoaAtualizada : p)));
+    fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            "funcionario": {
+                "nome": `${nome}`,
+                "sobrenome": `${sobrenome}`,
+                "sexo": `${sexo}`,
+                "dtNascimento": `${data}`,
+                "grauEscolaridade": `${esco}`,
+                "endereco": `${ende}`,
+                "foto": `foto.png `,
+                "salarioAtual": `${salario}`,
+                "valorPassagem": `${valorPassagem}`,
+                "optouVT": `${vt}`,
+                "historicoCargosESalarios": [
+                    {
+                        "cargo": `${cargo}`,
+                        "salario": "3000",
+                        "dataInicio": "2024-01-01",
+                        "dataFim": "2025-01-01"
+                    }
+                ]
+            }
+        }
+        )
+    })
+        .then(resp => resp.json())
+        .then(dados => console.log(dados))
+        .catch(err => console.error("Erro na requisição:", err));
 
     window.scrollTo(0, 0);
 

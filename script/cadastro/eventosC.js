@@ -1,7 +1,6 @@
 import { exibirDados } from "./exibirDados.js";
 import { pegarDados } from "./pegarDados.js";
 import { pessoas } from "../banco de dados/pessoas.js";
-import { pegarFuncionarios } from "../banco de dados/API.js";
 
 const submit = document.getElementById("submit");
 const radiosVT = document.querySelectorAll('input[name="vt"]');
@@ -42,9 +41,9 @@ submit.addEventListener("click", () => {
         "dtNascimento": `${neh.dataNascimento}`,
         "grauEscolaridade": `${neh.grauEscolaridade}`,
         "endereco": `${neh.endereco}`,
-        "foto": `foto.png `,
+        "foto": "foto.png",
         "salarioAtual": `${neh.salarioAtual}`,
-        "valorPassagem": `${neh.valorPassagem}`,
+        "valorPassagem": `${neh.vt ? neh.valorPassagem : 0}`,
         "optouVT": `${neh.vt}`,
         "historicoCargosESalarios": [
           {
@@ -74,7 +73,7 @@ radiosVT.forEach((radio) => {
       valorPassagem.disabled = false;
     } else {
       valorPassagem.disabled = true;
-      valorPassagem.value = "";
+      valorPassagem.value = "0";
     }
   });
 });
