@@ -1,19 +1,15 @@
-import { pessoas,local } from "../banco de dados/pessoas.js";
 
-    const delet = document.getElementById("delete");
+function deletarFuncionario() {
+    let id = window.location.search.split("?")[1];
 
-function deletarFuncionario(id){
+    fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+    })
+        .then(resp => resp.json())
+        .then(dados => console.log(dados))
+        .catch(err => console.error("Erro na requisição:", err));
 
-    const novoLocal = local.filter((funcionario) => funcionario.id !== id);
-    localStorage.setItem("pessoas", JSON.stringify(novoLocal));
     alert("Funcionário deletado com sucesso!");
-    window.location.href = "../index.html";
-
-}
-
-delet.addEventListener("click", () =>{
-    const id = document.getElementById("iId").textContent.split(": ")[1];
-    if(confirm("Tem certeza que deseja deletar este funcionário?")) {
-        deletarFuncionario(parseInt(id));
-    }
-})
+    window.location.href = "file:///C:/projeto-final-js-intermediario/index.html";
+} 

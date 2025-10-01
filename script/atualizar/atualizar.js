@@ -27,8 +27,8 @@ document.getElementById("submit").addEventListener("click", () => {
                 "grauEscolaridade": `${esco}`,
                 "endereco": `${ende}`,
                 "foto": `foto.png `,
-                "salarioAtual": `${salario}`,
-                "valorPassagem": `${valorPassagem}`,
+                "salarioAtual": salario,
+                "valorPassagem": valorPassagem,
                 "optouVT": `${vt}`,
                 "historicoCargosESalarios": [
                     {

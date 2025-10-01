@@ -14,7 +14,7 @@ function carregarDetalhesFuncionario() {
   })
     .then(resp => resp.json())
     .then(dados => {
-      funcionario = dados.funcionario;
+      funcionario = dados;
 
       console.log("Funcionário carregado:", funcionario);
 

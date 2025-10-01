@@ -8,19 +8,19 @@ export function exibirDados(pessoa) {
 
     const anoAtual = new Date().getFullYear();
     const anoNascimento = new Date(pessoa.dataNascimento).getFullYear();
-    pessoa.idade = anoAtual - anoNascimento;
+    pessoa.idade = anoAtual - anoNascimento;    
 
     document.getElementById("iId").textContent = `id: ${pessoa._id}`;
-    document.getElementById("inome").textContent = pessoa.funcionario.nome + " " + pessoa.funcionario.sobrenome;
-    document.getElementById("inasc").textContent = `Data de nascimento: ${pessoa.funcionario.dtNascimento}`;
-    document.getElementById("iesco").textContent = `Escolaridade: ${pessoa.funcionario.grauEscolaridade}`;
-    document.getElementById("iender").textContent = `Endereço: ${pessoa.funcionario.endereco}`;
-    document.getElementById("iidade").textContent = `Idade: ${pessoa.funcionario.idade}`;
-    document.getElementById("isalario").textContent = `Salário: R$${pessoa.funcionario.salarioAtual}`;
-    document.getElementById("iValorEmpresaFGTS").textContent = `FGTS: R$${calcularFGTS(pessoa.funcionario)}`;
-    document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.funcionario.optouVT >= true ? "Optante" : "Não optou"}`;
-    document.getElementById("isexo").textContent = `Sexo: ${pessoa.funcionario.sexo}`;
-    document.getElementById("icargo").textContent = `Cargo: ${pessoa.funcionario.cargoAtual}`;
+    document.getElementById("inome").textContent = pessoa.nome + " " + pessoa.sobrenome;
+    document.getElementById("inasc").textContent = `Data de nascimento: ${pessoa.dtNascimento}`;
+    document.getElementById("iesco").textContent = `Escolaridade: ${pessoa.grauEscolaridade}`;
+    document.getElementById("iender").textContent = `Endereço: ${pessoa.endereco}`;
+    document.getElementById("iidade").textContent = `Idade: ${pessoa.idade}`;
+    document.getElementById("isalario").textContent = `Salário: R$${pessoa.salarioAtual}`;
+    document.getElementById("iValorEmpresaFGTS").textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
+    document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.optouVT >= true ? "Optante" : "Não optou"}`;
+    document.getElementById("isexo").textContent = `Sexo: ${pessoa.sexo}`;
+    document.getElementById("icargo").textContent = `Cargo: ${pessoa.cargoAtual}`;
 
 
     if (pessoa.optouVT) {

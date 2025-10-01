@@ -1,15 +1,12 @@
 // arquivo: filtro.js
 
+import { exibirDados } from "./exibirDado.js";
+
 const pesquisa = document.getElementById("barraPesquisa");
 const divResultados = document.getElementById("resultados");
-const submit = document.getElementById("buscar-btn");
-
-
 var funcionarios = [];
 
-(function () {
-    pegarFuncionarios();
-})()
+pesquisa.addEventListener("keyup", pegarFuncionarios)
 
 
 function pegarFuncionarios() {
@@ -31,27 +28,32 @@ export function filtro(dados) {
 
     funcionarios = dados;
 
-
-
-    if (termo === "") {
-        submit.disabled = true;
-        return;
-    }
-
     const filtrados = funcionarios.filter(p =>
-        p.funcionario.nome.toLowerCase().includes(termo)
+        p.nome.toLowerCase().includes(termo)
     );
 
-
-    submit.disabled = filtrados.length === 0;
 
     filtrados.forEach(pessoa => {
         const botao = document.createElement("input");
         botao.type = "button";
-        botao.value = pessoa.funcionario.nome;
+        botao.value = pessoa.nome;
         botao.className = "btn btn-outline-secondary m-1";
         botao.addEventListener("click", () => {
-            pesquisa.value = pessoa.funcionario.nome; // preenche o input com o nome clicado
+            pesquisa.value = pessoa.nome; // preenche o input com o nome clicado
+
+            console.log(funcionarios);
+
+            let termo = pesquisa.value.trim().toLowerCase();
+            let pdp = funcionarios.find(p =>
+                p.nome.toLowerCase().trim() === termo
+            );
+
+            if (pdp) {
+                exibirDados(pdp);
+            } else {
+                alert("Pessoa não encontrada.");
+            }
+
         });
         divResultados.appendChild(botao);
     });
