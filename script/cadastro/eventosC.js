@@ -13,30 +13,28 @@ submit.addEventListener("click", () => {
 
   console.log(neh);
 
-  fetch('https://node-vercel-app-rho.vercel.app/api/funcionarios', {
-    method: "POST",
+  fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios/${id}`, {
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      "funcionario": {
-        "nome": `${neh.nome}`,
-        "sobrenome": `${neh.sobrenome}`,
-        "sexo": `${neh.sexo}`,
-        "dtNascimento": `${neh.dataNascimento}`,
-        "grauEscolaridade": `${neh.grauEscolaridade}`,
-        "endereco": `${neh.endereco}`,
-        "foto": "foto.png",
-        "salarioAtual": `${neh.salarioAtual}`,
-        "valorPassagem": `${neh.vt ? neh.valorPassagem : 0}`,
-        "optouVT": `${neh.vt}`,
-        "historicoCargosESalarios": [
-          {
-            "cargo": `${neh.cargoAtual}`,
-            "salario": "3000",
-            "dataInicio": "2024-01-01",
-            "dataFim": "2025-01-01"
-          }
-        ]
-      }
+      "nome": `${nome}`,
+      "sobrenome": `${sobrenome}`,
+      "sexo": `${sexo}`,
+      "dtNascimento": `${data}`,
+      "grauEscolaridade": `${esco}`,
+      "endereco": `${ende}`,
+      "foto": `foto.png `,
+      "salarioAtual": parseInt(salario),
+      "valorPassagem": parseInt(valorPassagem),
+      "optouVT": vt,
+      "historicoCargosESalarios": [
+        {
+          "cargo": `${cargo}`,
+          "salario": "3000",
+          "dataInicio": "2024-01-01",
+          "dataFim": "2025-01-01"
+        }
+      ]
     }
     )
   })

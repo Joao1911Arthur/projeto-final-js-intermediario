@@ -48,7 +48,7 @@ function carregarDetalhesFuncionario() {
               valorPassagem.disabled = false;
             } else {
               valorPassagem.disabled = true;
-              valorPassagem.value = "";
+              valorPassagem.value = 0;
             }
           });
         });

@@ -12,33 +12,30 @@ document.getElementById("submit").addEventListener("click", () => {
     const sexo = document.getElementById("sexo").value;
     const valorPassagem = document.getElementById("valorPassagem").value;
     var vt = document.querySelector('input[name="vt"]:checked').value == "sim" ? true : false;
-    console.log(vt);
 
 
     fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            "funcionario": {
-                "nome": `${nome}`,
-                "sobrenome": `${sobrenome}`,
-                "sexo": `${sexo}`,
-                "dtNascimento": `${data}`,
-                "grauEscolaridade": `${esco}`,
-                "endereco": `${ende}`,
-                "foto": `foto.png `,
-                "salarioAtual": salario,
-                "valorPassagem": valorPassagem,
-                "optouVT": `${vt}`,
-                "historicoCargosESalarios": [
-                    {
-                        "cargo": `${cargo}`,
-                        "salario": "3000",
-                        "dataInicio": "2024-01-01",
-                        "dataFim": "2025-01-01"
-                    }
-                ]
-            }
+            "nome": `${nome}`,
+            "sobrenome": `${sobrenome}`,
+            "sexo": `${sexo}`,
+            "dtNascimento": `${data}`,
+            "grauEscolaridade": `${esco}`,
+            "endereco": `${ende}`,
+            "foto": `foto.png `,
+            "salarioAtual": parseInt(salario),
+            "valorPassagem": parseInt(valorPassagem),
+            "optouVT": vt,
+            "historicoCargosESalarios": [
+                {
+                    "cargo": `${cargo}`,
+                    "salario": "3000",
+                    "dataInicio": "2024-01-01",
+                    "dataFim": "2025-01-01"
+                }
+            ]
         }
         )
     })

@@ -1,12 +1,6 @@
 import { pessoas, local } from "../banco de dados/pessoas.js";
 
 export function pegarDados() {
-  var id;
-  if (local == null) {
-    id = pessoas.length + 1;
-  } else {
-    id = local.length + 1;
-  }
 
   const nome = document.getElementById("nome").value;
   const sobrenome = document.getElementById("sobrenome").value;
@@ -34,7 +28,6 @@ export function pegarDados() {
     return null;
   } else {
     return {
-      id,
       nome,
       sobrenome,
       dataNascimento,
