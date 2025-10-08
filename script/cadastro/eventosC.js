@@ -13,43 +13,41 @@ submit.addEventListener("click", () => {
     alert("Por favor, preencha todos os campos obrigatórios.");
     return false;
   } else {
-    fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        "nome": `${neh.nome}`,
-        "sobrenome": `${neh.sobrenome}`,
-        "sexo": `${neh.sexo}`,
-        "dtNascimento": `${neh.dataNascimento}`,
-        "grauEscolaridade": `${neh.grauEscolaridade}`,
-        "endereco": `${neh.endereco}`,
-        "foto": `foto.png `,
-        "salarioAtual": parseInt(neh.salarioAtual),
-        "valorPassagem": parseInt(neh.valorPassagem),
-        "optouVT": neh.vt,
-        "historicoCargosESalarios": [
-          {
-            "cargo": `${neh.cargo}`,
-            "salario": "3000",
-            "dataInicio": "2024-01-01",
-            "dataFim": "2025-01-01"
-          }
-        ]
-      }
-      )
-    })
-      .then(resp => resp.json())
-      .then(dados => {
-        console.log(dados)
-        alert("Funcionário cadastrado com sucesso!");
-        window.location.href = "../index.html";
+
+    if (neh.idade > 18) {
+      fetch("https://node-vercel-app-rho.vercel.app/api/funcionarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          "nome": `${neh.nome}`,
+          "sobrenome": `${neh.sobrenome}`,
+          "sexo": `${neh.sexo}`,
+          "dtNascimento": `${neh.dataNascimento}`,
+          "grauEscolaridade": `${neh.grauEscolaridade}`,
+          "endereco": `${neh.endereco}`,
+          "foto": `${neh.foto}`,
+          "valorPassagem": parseInt(neh.valorPassagem),
+          "optouVT": neh.vt,
+          "cargo": `${neh.cargoAtual}`,
+          "salario": parseInt(neh.salarioAtual),
+          "dataInicio": `${neh.inicio}`,
+          "dataDemissao": null
+        }
+        )
       })
-      .catch(err => console.error("Erro na requisição:", err));
+        .then(resp => resp.json())
+        .then(dados => {
+          console.log(dados)
+          alert("Funcionário cadastrado com sucesso!");
+          window.location.href = "../index.html";
+        })
+        .catch(err => console.error("Erro na requisição:", err));
+    } else {
+      alert("Funcionário menor de idade não pode ser cadastrado.");
+      return false;
+    }
+
   }
-
-
-
-
 });
 
 // Lógica dos radios

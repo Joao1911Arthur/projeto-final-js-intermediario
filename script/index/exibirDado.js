@@ -4,7 +4,7 @@ import { calcularFGTS } from "./calcularFGTS.js";
 
 export function exibirDados(pessoa) {
   const anoAtual = new Date().getFullYear();
-  const anoNascimento = new Date(pessoa.dataNascimento).getFullYear();
+  const anoNascimento = new Date(pessoa.dtNascimento).getFullYear();
   pessoa.idade = anoAtual - anoNascimento;
 
   document.getElementById("iId").textContent = `id: ${pessoa._id}`;
@@ -22,7 +22,7 @@ export function exibirDados(pessoa) {
   document.getElementById("iidade").textContent = `Idade: ${pessoa.idade}`;
   document.getElementById(
     "isalario"
-  ).textContent = `Salário: R$${pessoa.salarioAtual}`;
+  ).textContent = `Salário: R$${pessoa.salario}`;
   document.getElementById(
     "iValorEmpresaFGTS"
   ).textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
@@ -31,7 +31,7 @@ export function exibirDados(pessoa) {
   document.getElementById("isexo").textContent = `Sexo: ${pessoa.sexo}`;
   document.getElementById(
     "icargo"
-  ).textContent = `Cargo: ${pessoa.historicoCargosESalarios[0].cargo}`;
+  ).textContent = `Cargo: ${pessoa.cargo}`;
 
   if (pessoa.optouVT) {
     document.getElementById(

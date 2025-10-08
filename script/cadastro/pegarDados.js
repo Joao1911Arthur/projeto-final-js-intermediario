@@ -10,32 +10,29 @@ export function pegarDados() {
   const valorPassagem = document.getElementById("valorPassagem").value;
   const cargoAtual = document.getElementById("cargo").value;
   const grauEscolaridade = document.getElementById("escolaridade").value;
-  const historico = document.getElementById("ihistorico").value;
   const endereco = document.getElementById("endereco").value;
-  const foto = document.getElementById("ifoto");
+  const foto = document.getElementById("img").value;
+  const inicio = document.getElementById("inicio").value;
 
+  const anoAtual = new Date().getFullYear();
+  const anoNascimento = new Date(dataNascimento).getFullYear();
+  const idade = anoAtual - anoNascimento;
 
-
-  if (vt === "sim") {
-    document.getElementById("valorPassagem").disabled = false;
-  }
-
-
-  else {
     return {
       nome,
       sobrenome,
       dataNascimento,
       sexo,
       salarioAtual,
-      vt: vt ? vt.value : "não",
+      vt: vt,
       valorPassagem: vt ? valorPassagem : "N/A",
       cargoAtual,
       grauEscolaridade,
-      historico,
       endereco,
       foto,
+      inicio,
+      idade,
     };
 
-  }
+  
 }

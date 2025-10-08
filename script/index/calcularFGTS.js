@@ -1,6 +1,6 @@
 
 
 export function calcularFGTS(pessoa) {
-    var FGTS = pessoa.salarioAtual * 0.08;
+    var FGTS = pessoa.salario * 0.08;
     return Math.round(FGTS);
 }

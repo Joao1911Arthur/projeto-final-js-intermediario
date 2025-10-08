@@ -1,127 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Atualizar Cadastro de Funcionário</title>
-    <link rel="stylesheet" href="../style/cadastro.css" />
 
-    <style>
-      textarea {
-        width: 740px;
-        height: 161px;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Atualizar Cadastro de Funcionário</title>
+  <link rel="stylesheet" href="../style/cadastro.css" />
 
-  <body>
-    <nav class="menu">
-      <a href="../index.html">Index</a>
-      <a href="cadastro.html">Cadastrar</a>
-      <a href="html/atualizarFuncionario.html">Atualizar</a>
-    </nav>
+  <style>
+    textarea {
+      width: 740px;
+      height: 161px;
+    }
+  </style>
+</head>
 
-    <main class="container">
-      <div class="card">
-        <h1>Atualizar Cadastro de Funcionário</h1>
+<body>
+  <nav class="menu">
+    <a href="../index.html">Index</a>
+    <a href="cadastro.html">Cadastrar</a>
+    <a href="html/atualizarFuncionario.html">Atualizar</a>
+  </nav>
 
-        <div id="formFuncionario">
-          <div id="iInfo">
-            <div>
-              <p id="iId">id:</p>
-            </div>
-            <div>
-              <img src="" alt="" id="foto" />
-            </div>
-          </div>
+  <main class="container">
+    <div class="card">
+      <h1>Atualizar Cadastro de Funcionário</h1>
 
-          <br />
-
-          <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input required type="text" id="nome" />
-          </div>
-
-          <div class="form-group">
-            <label for="sobrenome">Sobrenome:</label>
-            <input required type="text" id="sobrenome" />
-          </div>
-
-          <div class="form-group">
-            <label for="dataNascimento">Data de Nascimento:</label>
-            <input required type="date" id="dataNascimento" />
-          </div>
-
-          <div class="form-group">
-            <label for="sexo">Sexo:</label>
-            <select id="sexo">
-              <option value="">Selecione</option>
-              <option value="Masculino">Masculino</option>
-              <option value="Feminino">Feminino</option>
-              <option value="Carro de combate">Carro de combate</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="cargo">Cargo:</label>
-            <input required type="text" id="cargo" />
-          </div>
-
-          <div class="form-group">
-            <label for="escolaridade">Escolaridade:</label>
-            <input required type="text" id="escolaridade" />
-          </div>
-
-          <div class="form-group">
-            <label for="endereco">Endereço:</label>
-            <input required type="text" id="endereco" />
-          </div>
-
-          <div class="form-group">
-            <label for="salario">Salário:</label>
-            <input required type="number" id="salario" />
-          </div>
-
-          <div class="form-group">
-            <label>Opção pelo VT:</label><br />
-            <label
-              ><input required type="radio" name="vt" value="sim" /> Sim</label
-            >
-            <label
-              ><input required type="radio" name="vt" value="nao" /> Não</label
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="valorPassagem">Valor de passagem diário:</label>
-            <input required type="number" id="valorPassagem" />
-          </div>
-
-          <div class="form-group">
-            <label for="historico">historico</label>
-            <textarea name="historico" id="ihistorico"></textarea>
-          </div>
-
+      <div id="formFuncionario">
+        <div id="iInfo">
           <div>
-            <button type="submit" class="btn-azul" id="submit">
-              Atualizar Funcionário
-            </button>
-            <button
-              type="button"
-              class="btn-dark"
-              id="delete"
-              onclick="deletarFuncionario()"
-            >
-              Deletar Funcionário
-            </button>
+            <p id="iId">id:</p>
           </div>
-
-          <div id="resultado" class="resultado"></div>
+          <div>
+            <img src="" alt="" id="foto" />
+          </div>
         </div>
-      </div>
-    </main>
 
-    <script type="module" src="../script/atualizar/preencher.js"></script>
-    <script type="module" src="../script/atualizar/atualizar.js"></script>
-    <script src="../script/atualizar/apagar.js"></script>
-  </body>
+        <br />
+
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input required type="text" id="nome" />
+        </div>
+
+        <div class="form-group">
+          <label for="sobrenome">Sobrenome:</label>
+          <input required type="text" id="sobrenome" />
+        </div>
+
+        <div class="form-group">
+          <label for="dataNascimento">Data de Nascimento:</label>
+          <input required type="date" id="dataNascimento" />
+        </div>
+
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <select id="sexo">
+            <option value="">Selecione</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Carro de combate">Carro de combate</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cargo">Cargo:</label>
+          <input required type="text" id="cargo" />
+        </div>
+
+        <div class="form-group">
+          <label for="escolaridade">Escolaridade:</label>
+          <input required type="text" id="escolaridade" />
+        </div>
+
+        <div class="form-group">
+          <label for="endereco">Endereço:</label>
+          <input required type="text" id="endereco" />
+        </div>
+
+        <div class="form-group">
+          <label for="inicio">Data de Inicio:</label>
+          <input required type="date" id="inicio">
+        </div>
+
+        <div class="form-group">
+          <label for="salario">Salário:</label>
+          <input required type="number" id="salario" />
+        </div>
+
+        <div class="form-group">
+          <label>Opção pelo VT:</label><br />
+          <label><input required type="radio" name="vt" value="sim" /> Sim</label>
+          <label><input required type="radio" name="vt" value="nao" /> Não</label>
+        </div>
+
+        <div class="form-group">
+          <label for="valorPassagem">Valor de passagem diário:</label>
+          <input required type="number" id="valorPassagem" />
+        </div>
+
+        <div class="form-group">
+          <label for="img">Foto:</label>
+          <input required type="text" id="img">
+        </div>
+
+        <div>
+          <button type="submit" class="btn-azul" id="submit">
+            Atualizar Funcionário
+          </button>
+          <button type="button" class="btn-dark" id="delete" onclick="deletarFuncionario()">
+            Deletar Funcionário
+          </button>
+        </div>
+
+        <div id="resultado" class="resultado"></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="../script/atualizar/preencher.js"></script>
+  <script type="module" src="../script/atualizar/atualizar.js"></script>
+  <script src="../script/atualizar/apagar.js"></script>
+</body>
+
 </html>

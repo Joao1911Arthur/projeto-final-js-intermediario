@@ -32,29 +32,32 @@ export function filtro(dados) {
         p.nome.toLowerCase().includes(termo)
     );
 
+    if (pesquisa.value != "") {
+        filtrados.forEach(pessoa => {
+            const botao = document.createElement("input");
+            botao.type = "button";
+            botao.value = pessoa.nome;
+            botao.className = "btn btn-outline-secondary m-1";
+            botao.addEventListener("click", () => {
+                pesquisa.value = pessoa.nome; // preenche o input com o nome clicado
 
-    filtrados.forEach(pessoa => {
-        const botao = document.createElement("input");
-        botao.type = "button";
-        botao.value = pessoa.nome;
-        botao.className = "btn btn-outline-secondary m-1";
-        botao.addEventListener("click", () => {
-            pesquisa.value = pessoa.nome; // preenche o input com o nome clicado
+                console.log(funcionarios);
 
-            console.log(funcionarios);
+                let termo = pesquisa.value.trim().toLowerCase();
+                let pdp = funcionarios.find(p =>
+                    p.nome.toLowerCase().trim() === termo
+                );
 
-            let termo = pesquisa.value.trim().toLowerCase();
-            let pdp = funcionarios.find(p =>
-                p.nome.toLowerCase().trim() === termo
-            );
+                if (pdp) {
+                    exibirDados(pdp);
+                } else {
+                    alert("Pessoa não encontrada.");
+                }
 
-            if (pdp) {
-                exibirDados(pdp);
-            } else {
-                alert("Pessoa não encontrada.");
-            }
-
+            });
+            divResultados.appendChild(botao);
         });
-        divResultados.appendChild(botao);
-    });
+    }
+
+
 }
