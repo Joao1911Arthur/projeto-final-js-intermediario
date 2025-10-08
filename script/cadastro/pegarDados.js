@@ -1,32 +1,27 @@
-import { pessoas, local } from "../banco de dados/pessoas.js";
 
 export function pegarDados() {
 
-  const nome = document.getElementById("nome").value;
-  const sobrenome = document.getElementById("sobrenome").value;
+  const nome = document.getElementById("nome").value.replace(/\d+/, "");
+  const sobrenome = document.getElementById("sobrenome").value.replace(/\d+/, "");
   const dataNascimento = document.getElementById("dataNascimento").value;
   const sexo = document.getElementById("sexo").value;
   const salarioAtual = document.getElementById("salario").value;
   const vt = document.querySelector('input[name="vt"]:checked');
   const valorPassagem = document.getElementById("valorPassagem").value;
-  const email = document.getElementById("email").value;
-  const telefone = document.getElementById("telefone").value;
   const cargoAtual = document.getElementById("cargo").value;
   const grauEscolaridade = document.getElementById("escolaridade").value;
   const historico = document.getElementById("ihistorico").value;
   const endereco = document.getElementById("endereco").value;
   const foto = document.getElementById("ifoto");
 
- 
+
 
   if (vt === "sim") {
     document.getElementById("valorPassagem").disabled = false;
   }
 
-  if (!nome || !dataNascimento || !salarioAtual || !sobrenome) {
-    alert("Preencha todos os campos obrigatórios.");
-    return null;
-  } else {
+
+  else {
     return {
       nome,
       sobrenome,
@@ -35,15 +30,12 @@ export function pegarDados() {
       salarioAtual,
       vt: vt ? vt.value : "não",
       valorPassagem: vt ? valorPassagem : "N/A",
-      email,
-      telefone,
       cargoAtual,
       grauEscolaridade,
       historico,
       endereco,
       foto,
     };
+
   }
 }
-
- 

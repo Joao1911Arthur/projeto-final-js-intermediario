@@ -1,3 +1,4 @@
+
 document.getElementById("submit").addEventListener("click", () => {
   const id = document.getElementById("iId").textContent.split(": ")[1];
   const nome = document.getElementById("nome").value;
@@ -5,14 +6,17 @@ document.getElementById("submit").addEventListener("click", () => {
   const data = document.getElementById("dataNascimento").value;
   const ende = document.getElementById("endereco").value;
   const esco = document.getElementById("escolaridade").value;
+
   // mudança para valor ser numero da passagem e salario
+
   const salario = parseInt(document.getElementById("salario").value);
   const cargo = document.getElementById("cargo").value;
   const sexo = document.getElementById("sexo").value;
-  // mudança para valor ser numero da passagem e salario
+  
   const valorPassagem = parseInt(
     document.getElementById("valorPassagem").value
   );
+
   var vt =
     document.querySelector('input[name="vt"]:checked').value == "sim"
       ? true
@@ -29,10 +33,8 @@ document.getElementById("submit").addEventListener("click", () => {
       grauEscolaridade: `${esco}`,
       endereco: `${ende}`,
       foto: `foto.png `,
-      // mudança para valor ser numero da passagem e salario
       salarioAtual: salario,
       valorPassagem: valorPassagem,
-      // mudança para valor ser booleano
       optouVT: vt,
       historicoCargosESalarios: [
         {

@@ -26,9 +26,8 @@ export function exibirDados(pessoa) {
   document.getElementById(
     "iValorEmpresaFGTS"
   ).textContent = `FGTS: R$${calcularFGTS(pessoa)}`;
-  document.getElementById("iVT").textContent = `Vale transporte: ${
-    pessoa.optouVT >= true ? "Optante" : "Não optou"
-  }`;
+  document.getElementById("iVT").textContent = `Vale transporte: ${pessoa.optouVT >= true ? "Optante" : "Não optou"
+    }`;
   document.getElementById("isexo").textContent = `Sexo: ${pessoa.sexo}`;
   document.getElementById(
     "icargo"
@@ -47,6 +46,11 @@ export function exibirDados(pessoa) {
     document.getElementById("ipassagem").textContent = "";
     document.getElementById("iValorEmpresaVT").textContent = "";
   }
+
+  const fotoEl = document.getElementById("img");
+  fotoEl.src = pessoa.foto
+    ? pessoa.foto
+    : "../imagens/sem-foto.png";
 
   document.getElementById("iresult").classList.remove("d-none");
 }

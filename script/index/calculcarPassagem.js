@@ -1,6 +1,5 @@
 
 
-
 export function calcularPassagem(pessoa) {
 
     if (pessoa.optouVT) {

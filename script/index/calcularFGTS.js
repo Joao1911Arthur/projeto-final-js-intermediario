@@ -1,4 +1,3 @@
-import { pessoas,local } from "../banco de dados/pessoas.js";
 
 
 export function calcularFGTS(pessoa) {
