@@ -1,13 +1,44 @@
 import { pegarDados } from "./pegarDados.js";
 
 const submit = document.getElementById("submit");
-const radiosVT = document.querySelectorAll('input[name="vt"]');
 
 // Inicializa o Local Storage se estiver vazio
 
+
+
+const neh = pegarDados();
+
+const radiosVT = document.querySelectorAll('input[name="vt"]');
+
+const valorPassagem = document.getElementById("valorPassagem");
+valorPassagem.value = neh.valorPassagem;
+valorPassagem.disabled = !neh.optouVT;
+
+// Lógica dos radios
+radiosVT.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    const valorPassagem = document.getElementById("valorPassagem");
+
+    const isCheked = radio.checked;
+    const isTrue = isCheked ? JSON.parse(radio.value) : false;
+
+    if (isTrue) {
+      valorPassagem.disabled = false;
+      valorPassagem.value = neh.valorPassagem;
+    } else {
+      valorPassagem.disabled = true;
+      valorPassagem.value = "0";
+    }
+
+  });
+});
+
+
 submit.addEventListener("click", () => {
 
-  const neh = pegarDados();
+
+
+
 
   if (!neh.nome || !neh.sobrenome || !neh.dataNascimento || !neh.salarioAtual || !neh.cargoAtual || !neh.grauEscolaridade || !neh.endereco || !neh.sexo) {
     alert("Por favor, preencha todos os campos obrigatórios.");
@@ -50,16 +81,4 @@ submit.addEventListener("click", () => {
   }
 });
 
-// Lógica dos radios
-radiosVT.forEach((radio) => {
-  radio.addEventListener("change", () => {
-    const valorPassagem = document.getElementById("valorPassagem");
 
-    if (radio.value === "sim") {
-      valorPassagem.disabled = false;
-    } else {
-      valorPassagem.disabled = true;
-      valorPassagem.value = "0";
-    }
-  });
-});

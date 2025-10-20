@@ -57,10 +57,10 @@ function carregarDetalhesFuncionario() {
       imgPreview.src = fotoURL;
       imgPreview.alt = "Foto do funcionário";
 
-      // 🎫 Controle do Vale Transporte
       const valorPassagem = document.getElementById("valorPassagem");
-      valorPassagem.value = funcionario.valorPassagem ?? 0;
+      valorPassagem.value = funcionario.valorPassagem;
       valorPassagem.disabled = !funcionario.optouVT;
+
 
       // 📅 Preenche a data de início, se existir
       const inicio = document.getElementById("inicio");
@@ -78,13 +78,17 @@ function carregarDetalhesFuncionario() {
         radio.addEventListener("change", () => {
           const valorPassagem = document.getElementById("valorPassagem");
 
-          if (radio.value) {
+          const isCheked = radio.checked;
+          const isTrue = isCheked ? JSON.parse(radio.value) : false;
+
+          if (isTrue) {
             valorPassagem.disabled = false;
             valorPassagem.value = funcionario.valorPassagem;
           } else {
             valorPassagem.disabled = true;
-            valorPassagem.value = 0;
+            valorPassagem.value = "0";
           }
+
         });
       });
     })
