@@ -49,8 +49,6 @@ function carregarDetalhesFuncionario() {
       // 🖼️ Mostra a foto (usa uma padrão se não tiver)
       const fotoInput = document.getElementById("img");
       const imgPreview = document.getElementById("foto");
-
-      // ⚠️ Aqui o certo é usar `.src`, e não `.value`, para a imagem final
       const fotoURL = funcionario.foto
         ? funcionario.foto
         : "../imagens/sem-foto.png";
@@ -70,15 +68,19 @@ function carregarDetalhesFuncionario() {
 
       // 🔘 Marca o radio correspondente (sim/não)
       document.querySelector(
-        `input[name="vt"][value="${funcionario.optouVT ? "sim" : "nao"}"]`
+        `input[name="vt"][value="${funcionario.optouVT ? true : false}"]`
       ).checked = true;
 
+      const radiosVT = document.querySelectorAll('input[name="vt"]');
+
       // 🔄 Atualiza valorPassagem conforme o radio muda
-      document.querySelectorAll('input[name="vt"]').forEach((radio) => {
+      radiosVT.forEach((radio) => {
         radio.addEventListener("change", () => {
-          if (radio.value === "sim") {
+          const valorPassagem = document.getElementById("valorPassagem");
+
+          if (radio.value) {
             valorPassagem.disabled = false;
-            valorPassagem.value = funcionario.valorPassagem ?? 0;
+            valorPassagem.value = funcionario.valorPassagem;
           } else {
             valorPassagem.disabled = true;
             valorPassagem.value = 0;

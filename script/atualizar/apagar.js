@@ -11,5 +11,5 @@ function deletarFuncionario() {
         .catch(err => console.error("Erro na requisição:", err));
 
     alert("Funcionário deletado com sucesso!");
-    window.location.href = "file:///C:/projeto-final-js-intermediario/index.html";
+    window.location.href = "../index.html";
 } 

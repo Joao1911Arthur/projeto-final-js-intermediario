@@ -20,9 +20,7 @@ document.getElementById("submit").addEventListener("click", () => {
   );
 
   var vt =
-    document.querySelector('input[name="vt"]:checked').value == "sim"
-      ? true
-      : false;
+    document.querySelector('input[name="vt"]:checked').value === "true" ? true : false;
 
 
   fetch(`https://node-vercel-app-rho.vercel.app/api/funcionarios/${id}`, {
@@ -36,7 +34,7 @@ document.getElementById("submit").addEventListener("click", () => {
       "grauEscolaridade": `${esco}`,
       "endereco": `${ende}`,
       "foto": `${foto}`,
-      "valorPassagem": parseInt(valorPassagem ? valorPassagem : 0),
+      "valorPassagem": parseInt(vt ? valorPassagem : 0),
       "optouVT": vt,
       "cargo": `${cargo}`,
       "salario": parseInt(salario),
