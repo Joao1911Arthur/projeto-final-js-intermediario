@@ -26,7 +26,7 @@ submit.addEventListener("click", () => {
           "grauEscolaridade": `${neh.grauEscolaridade}`,
           "endereco": `${neh.endereco}`,
           "foto": `${neh.foto}`,
-          "valorPassagem": parseInt(neh.valorPassagem),
+          "valorPassagem": neh.valorPassagem,
           "optouVT": neh.vt,
           "cargo": `${neh.cargoAtual}`,
           "salario": parseInt(neh.salarioAtual),

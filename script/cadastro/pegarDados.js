@@ -5,8 +5,8 @@ export function pegarDados() {
   const sobrenome = document.getElementById("sobrenome").value.replace(/\d+/, "");
   const dataNascimento = document.getElementById("dataNascimento").value;
   const sexo = document.getElementById("sexo").value;
-  const salarioAtual = document.getElementById("salario").value;
-  const vt = document.querySelector('input[name="vt"]:checked');
+  const salarioAtual = parseInt(document.getElementById("salario").value);
+  const vt = document.querySelector('input[name="vt"]:checked').value === "sim" ? true : false ;
   const valorPassagem = document.getElementById("valorPassagem").value;
   const cargoAtual = document.getElementById("cargo").value;
   const grauEscolaridade = document.getElementById("escolaridade").value;
@@ -25,7 +25,7 @@ export function pegarDados() {
       sexo,
       salarioAtual,
       vt: vt,
-      valorPassagem: vt ? valorPassagem : "N/A",
+      valorPassagem: vt ? parseInt(valorPassagem) : 0,
       cargoAtual,
       grauEscolaridade,
       endereco,
